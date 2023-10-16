@@ -1,0 +1,10 @@
+{
+	"name": "custom-block-color-settings",
+	"scripts": {
+		"start": "wp-scripts start",
+		"build": "wp-scripts build"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^26.14.0"
+	}
+}

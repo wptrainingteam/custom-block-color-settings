@@ -1,0 +1,29 @@
+{
+  "apiVersion": 2,
+  "version": "20231016",
+  "name": "devblog/custom-block-color-settings",
+  "title": "Dev Blog: Custom Block Color Settings",
+  "category": "widgets",
+  "description": "Description...",
+  "attributes": {
+    "customColor": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "color": {
+      "link": true,
+      "gradients": true,
+      "__experimentalDefaultControls": {
+        "background": true,
+        "text": true,
+        "link": true
+      }
+    }
+  },
+  "textdomain": "custom-block-color-settings",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "example": {}
+}
