@@ -13,7 +13,7 @@
 
 namespace DevBlog\CustomBlockColorSettings;
 
-add_action( 'plugins_loaded', __NAMESPACE__ . '\\setup' );
+add_action( 'init', __NAMESPACE__ . '\\setup' );
 
 function setup() {
 	register_block_type( untrailingslashit( __DIR__ ) . '/build' );

@@ -1,12 +1,12 @@
 {
-  "apiVersion": 2,
-  "version": "20231016",
+  "apiVersion": 3,
+  "version": "20231019",
   "name": "devblog/custom-block-color-settings",
   "title": "Dev Blog: Custom Block Color Settings",
   "category": "widgets",
   "description": "Description...",
   "attributes": {
-    "customColor": {
+    "markerColor": {
       "type": "string",
       "default": ""
     }
