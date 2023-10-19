@@ -7,8 +7,10 @@
 	"description": "Description...",
 	"attributes" : {
 		"markerColor": {
-			"type": "string",
-			"default": ""
+			"type": "string"
+		},
+		"customMarkerColor": {
+			"type": "string"
 		}
 	},
 	"supports": {

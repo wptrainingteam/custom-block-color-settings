@@ -1,23 +1,19 @@
-// WordPress dependencies.
 import {
 	InspectorControls,
-	useBlockProps
-} from '@wordpress/block-editor';
-
-import { __ } from '@wordpress/i18n';
-
-import {
+	useBlockProps,
+	withColors,
 	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
 	__experimentalUseMultipleOriginColorsAndGradients as useMultipleOriginColorsAndGradients
 } from '@wordpress/block-editor';
 
-/**
- * Exports the block edit function.
- *
- * @since 1.0.0
- */
-export default function Edit( {
-	attributes: { markerColor },
+import { __ } from '@wordpress/i18n';
+
+export function Edit( {
+	attributes: {
+		customMarkerColor
+	},
+	markerColor,
+	setMarkerColor,
 	setAttributes,
 	style,
 	clientId
@@ -27,7 +23,9 @@ export default function Edit( {
 	const blockProps = useBlockProps( {
 		style: {
 			...style,
-			'--marker': markerColor ?? null,
+			'--marker': markerColor.slug
+			            ? `var( --wp--preset--color--${ markerColor.slug } )`
+				    : customMarkerColor,
 		}
 	} );
 
@@ -35,13 +33,18 @@ export default function Edit( {
 		<ColorGradientSettingsDropdown
 			settings={ [ {
 				label: __( 'Marker Color', 'custom-block-color-settings' ),
-				colorValue: markerColor,
-				onColorChange: ( value ) => setAttributes( {
-					markerColor: value
-				} )
+				colorValue: markerColor.color || customMarkerColor,
+				onColorChange: ( value ) => {
+					setMarkerColor( value );
+
+					setAttributes( {
+						customMarkerColor: value
+					} );
+				}
 			} ] }
 			panelId={ clientId }
 			hasColorsOrGradients={ false }
+			disableCustomColors={ false }
 			__experimentalIsRenderedInSidebar
 			{ ...colorGradientSettings }
 		/>
@@ -53,12 +56,16 @@ export default function Edit( {
 				{ markerColorDropdown }
 			</InspectorControls>
 			<ul { ...blockProps }>
-				<li>List Item 1</li>
-				<li>List Item 2</li>
-				<li>List Item 3</li>
-				<li>List Item 4</li>
-				<li>List Item 5</li>
+				<li>{ __( 'List Item 1', 'custom-block-color-settings' ) }</li>
+				<li>{ __( 'List Item 2', 'custom-block-color-settings' ) }</li>
+				<li>{ __( 'List Item 3', 'custom-block-color-settings' ) }</li>
+				<li>{ __( 'List Item 4', 'custom-block-color-settings' ) }</li>
+				<li>{ __( 'List Item 5', 'custom-block-color-settings' ) }</li>
 			</ul>
 		</>
 	);
 }
+
+export default withColors( {
+	markerColor: 'marker-color'
+} )( Edit );
