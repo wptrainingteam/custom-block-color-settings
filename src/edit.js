@@ -20,8 +20,6 @@ const Edit = ( {
 } ) => {
 	const colorGradientSettings = useMultipleOriginColorsAndGradients();
 
-	console.log( colorGradientSettings );
-
 	const blockProps = useBlockProps( {
 		style: {
 			...style,
