@@ -1,20 +1,18 @@
 <?php
 /**
- * Plugin Name:       Custom Block Color Settings
- * Plugin URI:        https://github.com/...
- * Description:       An example block with custom color settings.
+ * Plugin Name:       List Block With Marker Colors
+ * Plugin URI:        https://developer.wordpress.org/news/
+ * Description:       An example block that shows a list with a custom marker color option.
  * Version:           1.0.0
  * Requires at least: 6.3
  * Requires PHP:      7.4
  * Author:            WordPress Developer Blog
  * Author URI:        https://developer.wordpress.org/news/
- * Text Domain:       custom-block-color-settings
+ * Text Domain:       devblog
  */
 
-namespace DevBlog\CustomBlockColorSettings;
+add_action( 'init', 'devblog_list_marker_colors_setup' );
 
-add_action( 'init', __NAMESPACE__ . '\\setup' );
-
-function setup() {
-	register_block_type( untrailingslashit( __DIR__ ) . '/build' );
+function devblog_list_marker_colors_setup() {
+	register_block_type( trailingslashit( __DIR__ ) . 'build' );
 }

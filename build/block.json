@@ -1,10 +1,10 @@
 {
   "apiVersion": 3,
-  "version": "20231019",
-  "name": "devblog/custom-block-color-settings",
-  "title": "Dev Blog: Custom Block Color Settings",
+  "version": "1.0.0",
+  "name": "devblog/list-with-marker-colors",
+  "title": "List With Marker Colors",
   "category": "widgets",
-  "description": "Description...",
+  "description": "Add a custom description here.",
   "attributes": {
     "markerColor": {
       "type": "string"
@@ -24,7 +24,7 @@
       }
     }
   },
-  "textdomain": "custom-block-color-settings",
+  "textdomain": "devblog",
   "editorScript": "file:./index.js",
   "style": "file:./style-index.css",
   "example": {}

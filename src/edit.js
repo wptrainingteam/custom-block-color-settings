@@ -8,7 +8,7 @@ import {
 
 import { __ } from '@wordpress/i18n';
 
-export function Edit( {
+const Edit = ( {
 	attributes: {
 		customMarkerColor
 	},
@@ -17,13 +17,15 @@ export function Edit( {
 	setAttributes,
 	style,
 	clientId
-} ) {
+} ) => {
 	const colorGradientSettings = useMultipleOriginColorsAndGradients();
+
+	console.log( colorGradientSettings );
 
 	const blockProps = useBlockProps( {
 		style: {
 			...style,
-			'--marker': markerColor.slug
+			'--devblog-list-marker': markerColor.slug
 			            ? `var( --wp--preset--color--${ markerColor.slug } )`
 				    : customMarkerColor,
 		}
@@ -32,7 +34,7 @@ export function Edit( {
 	const markerColorDropdown = (
 		<ColorGradientSettingsDropdown
 			settings={ [ {
-				label: __( 'Marker Color', 'custom-block-color-settings' ),
+				label: __( 'Marker Color', 'devblog' ),
 				colorValue: markerColor.color || customMarkerColor,
 				onColorChange: ( value ) => {
 					setMarkerColor( value );
@@ -56,15 +58,15 @@ export function Edit( {
 				{ markerColorDropdown }
 			</InspectorControls>
 			<ul { ...blockProps }>
-				<li>{ __( 'List Item 1', 'custom-block-color-settings' ) }</li>
-				<li>{ __( 'List Item 2', 'custom-block-color-settings' ) }</li>
-				<li>{ __( 'List Item 3', 'custom-block-color-settings' ) }</li>
-				<li>{ __( 'List Item 4', 'custom-block-color-settings' ) }</li>
-				<li>{ __( 'List Item 5', 'custom-block-color-settings' ) }</li>
+				<li>{ __( 'List Item 1', 'devblog' ) }</li>
+				<li>{ __( 'List Item 2', 'devblog' ) }</li>
+				<li>{ __( 'List Item 3', 'devblog' ) }</li>
+				<li>{ __( 'List Item 4', 'devblog' ) }</li>
+				<li>{ __( 'List Item 5', 'devblog' ) }</li>
 			</ul>
 		</>
 	);
-}
+};
 
 export default withColors( {
 	markerColor: 'marker-color'
