@@ -32,7 +32,7 @@ const Edit = ( {
 	const markerColorDropdown = (
 		<ColorGradientSettingsDropdown
 			settings={ [ {
-				label: __( 'Marker Color', 'devblog' ),
+				label: __( 'Marker', 'devblog' ),
 				colorValue: markerColor.color || customMarkerColor,
 				onColorChange: ( value ) => {
 					setMarkerColor( value );
