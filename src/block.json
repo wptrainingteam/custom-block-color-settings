@@ -16,12 +16,7 @@
 	"supports": {
 		"color": {
 			"link": true,
-			"gradients": true,
-			"__experimentalDefaultControls": {
-				"background": true,
-				"text": true,
-				"link": true
-			}
+			"gradients": true
 		}
 	},
 	"textdomain": "devblog",
